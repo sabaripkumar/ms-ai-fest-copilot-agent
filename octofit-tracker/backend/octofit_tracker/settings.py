@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-6d@-2+_%#89q8js5m@w(&p+wn@bxvgkjra-qf)j^b^%0)t9epw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'silver-system-7xgrp695jrp3j6r-8000.app.github.dev']
 
 
 # Application definition
@@ -140,4 +140,8 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOW_HEADERS = [
     "content-type",
     "authorization",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://silver-system-7xgrp695jrp3j6r-8000.app.github.dev'
 ]
