@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
+    
     {
       "name": "Run Django Server",
       "type": "python",
@@ -8,7 +9,8 @@
       "program": "${workspaceFolder}/octofit-tracker/backend/manage.py",
       "args": ["runserver", "0.0.0.0:8000"],
       "django": true,
-      "justMyCode": true
+      "justMyCode": true,
+      "python": "/workspaces/ms-ai-fest-copilot-agent/octofit-tracker/backend/venv/bin/python"
     }
   ]
 }
