@@ -1,38 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Users = () => {
+function Users() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('https://silver-system-7xgrp695jrp3j6r-8000.app.github.dev/api/users')
+    fetch('https://silver-system-7xgrp695jrp3j6r-8000.app.github.dev/api/users/')
       .then(response => response.json())
-      .then(data => setUsers(data));
+      .then(data => setUsers(data))
+      .catch(error => console.error('Error fetching users:', error));
   }, []);
 
   return (
-    <div className="card">
-      <div className="card-body">
-        <h1 className="card-title">Users</h1>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div>
+      <h1>Users</h1>
+      <ul>
+        {users.map(user => (
+          <li key={user._id}>{user.username} - {user.email}</li>
+        ))}
+      </ul>
     </div>
   );
-};
+}
 
 export default Users;

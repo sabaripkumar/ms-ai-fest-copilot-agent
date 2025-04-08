@@ -1,38 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Teams = () => {
+function Teams() {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    fetch('https://silver-system-7xgrp695jrp3j6r-8000.app.github.dev/api/teams')
+    fetch('https://silver-system-7xgrp695jrp3j6r-8000.app.github.dev/api/teams/')
       .then(response => response.json())
-      .then(data => setTeams(data));
+      .then(data => setTeams(data))
+      .catch(error => console.error('Error fetching teams:', error));
   }, []);
 
   return (
-    <div className="card">
-      <div className="card-body">
-        <h1 className="card-title">Teams</h1>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {teams.map(team => (
-              <tr key={team.id}>
-                <td>{team.id}</td>
-                <td>{team.name}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div>
+      <h1>Teams</h1>
+      <ul>
+        {teams.map(team => (
+          <li key={team._id}>{team.name}</li>
+        ))}
+      </ul>
     </div>
   );
-};
+}
 
 export default Teams;
